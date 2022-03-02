@@ -1,38 +1,42 @@
-import { useState } from 'react';
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { useState } from 'react'
+import { FiEdit3, FiTrash } from 'react-icons/fi'
 
-import { Container } from './styles';
-import api from '../../services/api';
+import { Container } from './styles'
+import api from '../../services/api'
 
 type IFood = {
-  id: number,
-  name: string,
+  id: number
+  name: string
   description: string
-  price: number,
-  available: boolean;
-  image: string;
+  price: number
+  available: boolean
+  image: string
 }
 
 type IFoodProps = {
-  food: IFood,
-  handleDelete: (id: Number) => void;
-  handleEditFood: (food: IFood) => void;
+  food: IFood
+  handleDelete: (id: number) => void
+  handleEditFood: (food: IFood) => void
 }
 
-export const Food = function({ food, handleDelete, handleEditFood }: IFoodProps) {
+export const Food: React.FC<IFoodProps> = function ({
+  food,
+  handleDelete,
+  handleEditFood,
+}: IFoodProps) {
   const [isAvailable, setIsAvailable] = useState(food.available)
 
   const toggleAvailable = async () => {
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
-    });
+    })
 
-    setIsAvailable(!isAvailable);
+    setIsAvailable(!isAvailable)
   }
 
   const setEditingFood = () => {
-    handleEditFood(food);
+    handleEditFood(food)
   }
 
   return (
@@ -84,5 +88,5 @@ export const Food = function({ food, handleDelete, handleEditFood }: IFoodProps)
         </div>
       </section>
     </Container>
-  );
-};
+  )
+}

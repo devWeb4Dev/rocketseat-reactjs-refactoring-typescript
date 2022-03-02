@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 type ContainerProps = {
-  available: boolean;
+  available: boolean
 }
 export const Container = styled.div<ContainerProps>`
   background: #f0f0f5;
@@ -15,8 +15,8 @@ export const Container = styled.div<ContainerProps>`
     text-align: center;
 
     ${props =>
-    !props.available &&
-    css`
+      !props.available &&
+      css`
         opacity: 0.3;
       `};
 
@@ -144,4 +144,4 @@ export const Container = styled.div<ContainerProps>`
       }
     }
   }
-`;
+`

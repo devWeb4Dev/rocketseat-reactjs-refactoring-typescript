@@ -4,42 +4,42 @@ import {
   useState,
   useCallback,
   InputHTMLAttributes,
-} from 'react';
+} from 'react'
 
-import { useField } from '@unform/core';
+import { useField } from '@unform/core'
 
-import { Container } from './styles';
+import { Container } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: JSX.Element,
-  name: string;
+  icon?: JSX.Element
+  name: string
 }
 
-const Input = ({ name, icon, ...rest }: InputProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const Input: React.FC<InputProps> = ({ name, icon, ...rest }: InputProps) => {
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setIsFilled] = useState(false);
+  const [isFocused, setIsFocused] = useState(false)
+  const [isFilled, setIsFilled] = useState(false)
 
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField } = useField(name)
 
   const handleInputFocus = useCallback(() => {
-    setIsFocused(true);
-  }, []);
+    setIsFocused(true)
+  }, [])
 
   const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
+    setIsFocused(false)
 
-    setIsFilled(!!inputRef.current?.value);
-  }, []);
+    setIsFilled(!!inputRef.current?.value)
+  }, [])
 
   useEffect(() => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
       path: 'value',
-    });
-  }, [fieldName, registerField]);
+    })
+  }, [fieldName, registerField])
 
   return (
     <Container isFilled={isFilled} isFocused={isFocused}>
@@ -53,7 +53,7 @@ const Input = ({ name, icon, ...rest }: InputProps) => {
         {...rest}
       />
     </Container>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

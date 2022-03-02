@@ -1,13 +1,17 @@
 // import { useState } from 'react';
-import ReactModal from 'react-modal';
+import ReactModal from 'react-modal'
 
 type ModalProps = {
-  children: React.ReactNode;
-  isOpen: boolean;
-  setIsOpen: () => void;
+  children: React.ReactNode
+  isOpen: boolean
+  setIsOpen: () => void
 }
 
-export const Modal = function({ children, isOpen, setIsOpen }: ModalProps) {
+export const Modal: React.FC<ModalProps> = function ({
+  children,
+  isOpen,
+  setIsOpen,
+}: ModalProps) {
   return (
     <ReactModal
       shouldCloseOnOverlayClick={!false}
@@ -35,5 +39,5 @@ export const Modal = function({ children, isOpen, setIsOpen }: ModalProps) {
     >
       {children}
     </ReactModal>
-  );
-};
+  )
+}
