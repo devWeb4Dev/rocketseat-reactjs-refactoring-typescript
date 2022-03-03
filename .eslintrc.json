@@ -52,7 +52,7 @@
         "selector": "interface",
         "format": ["PascalCase"],
         "custom": {
-          "regex": "^I[A-Z]",
+          "regex": "^I[A-Za-z]",
           "match": true
         }
       }

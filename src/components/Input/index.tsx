@@ -1,3 +1,4 @@
+import { useField } from '@unform/core'
 import {
   useEffect,
   useRef,
@@ -5,8 +6,6 @@ import {
   useCallback,
   InputHTMLAttributes,
 } from 'react'
-
-import { useField } from '@unform/core'
 
 import { Container } from './styles'
 
