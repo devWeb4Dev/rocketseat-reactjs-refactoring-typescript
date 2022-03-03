@@ -1,8 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2020": true,
-    "node": true,
+    "es2021": true,
     "jest": true
   },
   "extends": [
@@ -18,15 +17,60 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 13,
     "sourceType": "module"
   },
+  "ignorePatterns": [
+    "node_modules",
+    "dist"
+  ],
   "plugins": [
-    "react"
+    "react",
+    "import-helpers"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "space-before-function-paren": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_.+[^_]$"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "absolute",
+          "/^@/(?!.*assets).*/",
+          "/^@/assets/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
   }
 }

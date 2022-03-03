@@ -1,11 +1,11 @@
-import { Switch, Route } from 'react-router-dom'
+import { Routes as RCRoutes, Route } from 'react-router-dom'
 
 import { Dashboard } from '../pages/Dashboard'
 
 const Routes: React.FC = () => (
-  <Switch>
-    <Route path="/" exact component={Dashboard} />
-  </Switch>
+  <RCRoutes>
+    <Route path="/" element={Dashboard} />
+  </RCRoutes>
 )
 
 export default Routes
