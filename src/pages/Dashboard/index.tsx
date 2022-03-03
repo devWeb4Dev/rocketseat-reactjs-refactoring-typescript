@@ -16,7 +16,6 @@ type IFood = {
 }
 
 export const Dashboard: React.FC = function () {
-  console.log('xxxxxx')
   const [foods, setFoods] = useState<IFood[]>([])
   const [editingFood, setEditingFood] = useState({} as IFood)
   const [modalOpen, setModalOpen] = useState(false)
